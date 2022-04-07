@@ -1,8 +1,8 @@
 class Person:
     def __init__(self, addr, client):
         self.addr = addr
-        # self.name = name
         self.client = client
+        self.name = None
     
     def __repr__(self):
         print(f'Person({self.addr, self.name})')

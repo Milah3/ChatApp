@@ -38,13 +38,14 @@ def handle_client(person):
 
     # Get person's name 
     name = client.recv(BUFSIZ).decode("utf8")
+    person.set_name(name) 
+
     msg = bytes(f'{name}: has joined the chat!', "utf8")
     broadcast(msg, "") # broadcast welcome message
 
     while True:
         try: 
             msg = client.recv(BUFSIZ)
-            print(f'{name}:', msg.decode('utf8'))
 
             if msg == bytes('{quit}', 'utf8'):
                 broadcast(bytes(f'{name}: has left the chat.', "utf8"),'')
@@ -53,6 +54,7 @@ def handle_client(person):
                 persons.remove(person)
                 # break
             else:
+                print(f'{name}:', msg.decode('utf8'))
                 broadcast(msg, name)
         except Exception as e:
             print('[EXCEPTION]', e)
@@ -78,7 +80,7 @@ def wait_for_connection():
 
 if __name__ == "__main__":
     SERVER.listen(MAX_CONNECTIONS)
-    print("Waiting for connection...")
+    print("Waiting for connections...")
     ACCEPT_THREAD = Thread(target=wait_for_connection)
     ACCEPT_THREAD.start()
     ACCEPT_THREAD.join()

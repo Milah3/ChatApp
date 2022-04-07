@@ -3,6 +3,7 @@
 from email import message
 from socket import AF_INET, SOCK_STREAM, socket
 from threading import Thread
+import time
 
 # GLOBAL CONSTANTS
 BUFSIZ = 1024
@@ -53,8 +54,11 @@ receive_thread.start()
 
 # send_msg_thread = Thread(target=send_message, args=('This is my message',))
 
-# send_message("Miler")
-# send_message('Hey there!')
-# send_message('What it do bro')
+send_message("Miler")
+time.sleep(10)
+send_message('Hey there!')
+time.sleep(10)
+send_message('What it do bro')
+time.sleep(10)
 send_message('{quit}')
 
