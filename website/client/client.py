@@ -1,7 +1,7 @@
 from socket import AF_INET, SOCK_STREAM, socket
 from threading import Thread, Lock
-
 # import time
+
 
 class Client:
     # """
@@ -9,7 +9,7 @@ class Client:
     # """
 
     # GLOBAL CONSTANTS
-    BUFSIZ = 1024
+    BUFSIZ = 512
     HOST = 'localhost'
     MAX_CONNECTIONS = 10
     PORT = 5500
@@ -28,7 +28,6 @@ class Client:
         self.send_message(name)
         self.lock = Lock()
 
-
     def receive_messages(self):
         '''
         receive messages from server 
@@ -37,21 +36,24 @@ class Client:
         while True:
             try:
                 msg = self.client_socket.recv(self.BUFSIZ).decode('utf8')
+
+                # Make sure memory is safe to access
                 self.lock.acquire()
                 self.messages.append(msg)
                 self.lock.release()
                 if msg == "{OK}":
+                    print("You have successfully been disconnected from the server")
                     self.client_socket.close()
-                    print('You have successfully left the chat')
                     break
                 elif msg and msg != '{OK}':
                     print(msg)
                 else:
+                    print('Error')
                     break
             except Exception as e:
-                # print("[EXCEPTION TEST 1] ", e)
+                print("[EXCEPTION TEST 1] ", e)
                 break
-    
+
     def send_message(self, msg):
         '''
         receive messages from server 
@@ -65,9 +67,13 @@ class Client:
         returns a list of string messages
         :return: list[str]
         '''
-        # self.lock.acquire()
-        # self.lock.release()
-        return self.messages
+
+        messages_copy = self.messages
+        # Make sure memory is safe to access
+        self.lock.acquire()
+        self.messages = []
+        self.lock.release()
+        return messages_copy
 
     def disconnect(self):
         self.send_message('{quit}')

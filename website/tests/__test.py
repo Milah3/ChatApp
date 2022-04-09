@@ -4,7 +4,7 @@ from threading import Thread
 import time
 
 # GLOBAL CONSTANTS
-BUFSIZ = 1024
+BUFSIZ = 512
 HOST = 'localhost'
 MAX_CONNECTIONS = 10
 PORT = 5500
@@ -14,6 +14,7 @@ ADDR = (HOST, PORT)
 test_socket = socket(AF_INET, SOCK_STREAM)
 test_socket.connect(ADDR)
 messages = []
+
 
 def receive_messages():
     '''
@@ -48,6 +49,7 @@ def send_message(msg):
     except Exception as e:
         print("[EXCEPTION Test 2] ", e)
 
+
 receive_thread = Thread(target=receive_messages)
 receive_thread.start()
 
@@ -55,5 +57,4 @@ send_message("James")
 time.sleep(2)
 send_message('Hey goes it?')
 time.sleep(2)
-send_message("{quit}") 
-
+send_message("{quit}")

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %} <h1> TESTING </h1>
+
+<button id="test" type="button" class="btn btn-primary btn-lg"> Large btn</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
+
+{% endblock %}

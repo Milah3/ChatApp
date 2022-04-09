@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %} Log In {% endblock %}
+
+{% block content %}
+<!--<h2 class=""> Please enter username </h2>-->
+
+<form class="col-md-8 mx-auto"
+      style="display: grid; gap:20px; margin-top: 30vh; max-width:50vh;" method="POST">
+    <label for="inputName" class="visually-hidden">Name</label>
+    <input type="username" class="form-control" style="max-width: 50vh; text-align: center;" id="inputName"
+           placeholder="Enter your name to join the chat">
+    <button type="submit" class="btn btn-secondary mb-3">Join Chat</button>
+</form>
+<!--<button id="test" type="button" class="btn btn-primary btn-lg"> Login</button>-->
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
+<script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
+
+{% endblock %}
