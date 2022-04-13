@@ -16,28 +16,28 @@ def login():
     if request.method == 'POST':
         print(request.form)
         session[NAME_KEY]: request.form["name"]
-        return (redirect(url_for("home")))
+        return redirect(url_for("home"))
     return render_template("/login.html")
 
 
 @app.route("/")
 @app.route("/home")
 def home():
-    # if NAME_KEY not in session:
-    #     return redirect(url_for("login"))
-    # name = session[NAME_KEY]
+    if NAME_KEY not in session:
+        return redirect(url_for("login"))
+    name = session[NAME_KEY]
     return render_template("index.html")
 
 
-#
-# @app.route("logout")
-# def logout():
-#     # session.pop(NAME_KEY, None)
-#     return render_template("/logout.html")
+@app.route("/logout")
+def logout():
+    session.pop(NAME_KEY, None)
+    return render_template("/logout.html")
 
 
 @app.route("/run")
 def run():
+    print('ran...')
     return "something"
 
 

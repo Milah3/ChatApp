@@ -2,11 +2,22 @@
 
 {% block title %} Log Out {% endblock %}
 
-{% block content %} <h1> Log Out </h1>
+{% block content %}
 
-<button id="test" type="button" class="btn btn-primary btn-lg"> Log Out</button>
+<div id="liveAlertPlaceholder"></div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="{{url_for('static', filename='index.js')}}"></script>
+<div class="alert alert-success" role="alert" style="margin-top:-1%">
+    You have successfully been logged out!
+</div>
+
+<button type="button" class="btn btn-secondary"><a href="/login" style="text-decoration: none; color: inherit;"> Log
+    Back
+    In </a></button>
 
 {% endblock %}
+
+
+{% block script %}
+
+{% endblock %}
+
