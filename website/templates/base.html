@@ -10,23 +10,26 @@
     <title class="title">
         {% block title %} Vuga {% endblock %}
     </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+          integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: slategrey !important;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Chat App </a>
+        <a class="navbar-brand" href="#" style="font-size: 15px; margin-bottom: 10px;">Chat App </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="justify-content: space-between;">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown"
+             style="justify-content: space-between;">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/home">Home</a>
                 </li>
-
             </ul>
 
             {% if session["name"] %}
