@@ -45,8 +45,10 @@ def logout():
 def run():
     if request.method == 'POST':
         msg = request.form["msg"]
-        
-        print('msg:', msg)
+        # client = Client()
+        # client.send(msg)
+
+        # print('msg:', msg)
     return "OK"
 
 
