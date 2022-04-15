@@ -1,11 +1,15 @@
 from flask import Flask, render_template, request, session, redirect, url_for
+from flask_socketio import SocketIO
 
 # from client import Client
+
 
 NAME_KEY = 'name'
 
 app = Flask(__name__)
 app.secret_key = "TryToGuessMe"
+
+socketio = SocketIO(app, logger=True, engineio_logger=True)
 
 
 # session[NAME_KEY] = "Miles"
@@ -48,9 +52,10 @@ def run():
         # client = Client()
         # client.send(msg)
 
-        # print('msg:', msg)
+        print('msg:', msg)
     return "OK"
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # app.run(debug=True)
+    socketio.run(app)

@@ -3,7 +3,7 @@
 import time
 from threading import Thread
 
-from client import Client
+from website.client import Client
 
 
 def update_messages():
