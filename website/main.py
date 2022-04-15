@@ -41,10 +41,13 @@ def logout():
     return render_template("/logout.html")
 
 
-@app.route("/run")
+@app.route("/run", methods=["GET", "POST"])
 def run():
-    print('ran...')
-    return "something"
+    if request.method == 'POST':
+        msg = request.form["msg"]
+        
+        print('msg:', msg)
+    return "OK"
 
 
 if __name__ == "__main__":

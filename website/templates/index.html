@@ -3,8 +3,50 @@
 {% block title %} Home {% endblock %}
 
 {% block content %}
+<!--<section class="section" style="display: grid; grid-template-columns: 1fr 3fr">-->
+<!--    <section class="section u-pull-left" style="width: 30vh; border: 1px solid">-->
 
-<h3> Welcome, {{session["name"]}} </h3>
+<!--    </section>-->
+<section class="section chat-box">
+    <section class="section section-a">
+        <containter class="container">
+            <row class="row">
+                <div class="u-full-width" style="height: 10vh; margin-top: 10px; border: 1px solid #ccc;">
+
+                </div>
+            </row>
+        </containter>
+    </section>
+    <section class="section section-b">
+        <containter class="container">
+            <row class="row">
+                <div class="u-full-width" style="border: 1px solid #ccc; height: 70vh;">
+                    <li>Lorem</li>
+                    <li>Lorem</li>
+                    <li>Lorem</li>
+                    <li>Lorem</li>
+                    <li>Lorem</li>
+                    <li>Lorem</li>
+                </div>
+            </row>
+        </containter>
+    </section>
+
+    <section class="section section-c">
+        <containter class="container">
+            <row class="row">
+                <div class="u-full-width"
+                     style="display: flex; gap: 20px; border: 1px solid #ccc; height: 10vh; align-items: center; align-text: center; justify-items: space-between;">
+                    <input type="text" class="eleven columns" id="msg" placeholder="Enter text message here"
+                           style="min-height: 70%; margin-top:10px; resize: none;"></input>
+                    <button type="button" id="send_btn" class="btn-primary">Send</button>
+                </div>
+            </row>
+        </containter>
+    </section>
+</section>
+<!--</section>-->
+<!--<h3> Welcome, {{session["name"]}} </h3>-->
 
 
 {% endblock %}
